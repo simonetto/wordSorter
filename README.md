@@ -1,11 +1,11 @@
-# Renzo's Forecast
+# Renzo's Word Sorter
 
-A simple weather forecast page using Angular 1.5 and ES6
+A simple word sorting page using Angular 1.5 and ES6
 
 ## Installation
 
 ```
-$ git clone git@github.com:simonetto/forecast.git
+$ git clone git@github.com:simonetto/wordSorter.git
 $ npm install
 ```
 
@@ -26,16 +26,3 @@ $ npm run test
 ```
 $ npm run build
 ```
-
-## To Do
-
-* Add icons
-* Improve the CSS to better handle different screen resolutions
-* Improve the CSS with no hardcoded colors, etc
-* Improve tests coverage
-
-## Possible improvements
-
-* Use an endpoint so the user is able to pick cities from all over the World
-* Add a chart to make the data more readable to the user
-* Add a map to let the user easily pick the city
