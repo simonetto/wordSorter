@@ -1,0 +1,12 @@
+<section>
+    <div>
+        <input type="text" placeholder="Reference" ng-model="landing.model.reference">
+        <input type="text" placeholder="New word" ng-model="landing.model.newWord">
+        <button ng-click="landing.onWordAdding()">+</button>
+    </div>
+
+    <div ng-repeat="item in landing.model.list">
+        <span>{{item.word}}</span>
+    </div>
+    <button ng-click="landing.onWordRemoval()">-</button>
+</section>
