@@ -16,6 +16,10 @@ export default class LandingController {
   onWordRemoval() {
     this.model.list = this.sortingService.removeWord();
   }
+
+  isAdditionDisabled() {
+    return !this.model.reference || !this.model.newWord;
+  }
 }
 
 LandingController.$inject = ['sorting'];

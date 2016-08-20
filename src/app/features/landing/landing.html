@@ -1,18 +1,22 @@
 <section class="landing-wrapper">
-    <div>
+    <div class="list-wrapper">
+      <div class="column-item">
         <label for="reference-word">Reference:</label>
-        <input type="text" id="reference-word" placeholder="reference word" ng-model="landing.model.reference">
+        <input type="text" id="reference-word" placeholder="reference word" ng-model="landing.model.reference" ng-disabled="landing.model.list.length">
+      </div>
 
+      <div class="column-item">
         <label for="new-word">New candidate:</label>
         <input type="text" id="new-word" placeholder="candidate word" ng-model="landing.model.newWord">
-        <button ng-click="landing.onWordAdding()">+</button>
+        <button ng-click="landing.onWordAdding()" ng-disabled="landing.isAdditionDisabled()">+</button>
+      </div>
     </div>
 
-    <div>
+    <div class="column-wrapper">
         <div class="list-wrapper">
-            <span ng-repeat="item in landing.model.list">{{item.word}}</span>
+            <list-item ng-repeat="item in landing.model.list" item="item"></list-item>
         </div>
 
-        <button ng-click="landing.onWordRemoval()">-</button>
+        <button ng-click="landing.onWordRemoval()" ng-show="landing.model.list.length">-</button>
     </div>
 </section>

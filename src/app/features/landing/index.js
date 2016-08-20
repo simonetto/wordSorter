@@ -6,7 +6,9 @@ import LandingController from './landing.controller';
 
 import sorting from '../../services/sorting.service';
 
-export default angular.module('app.home', [uirouter, sorting])
+import listItem from '../../directives/list-item.directive';
+
+export default angular.module('app.home', [uirouter, sorting, listItem])
   .config(routing)
   .controller('LandingController', LandingController)
   .name;

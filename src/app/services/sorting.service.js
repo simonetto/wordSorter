@@ -1,5 +1,5 @@
 import angular from 'angular';
-import MaxHeap from './max-heap';
+import MaxHeap from './../utils/max-heap';
 
 class Sorting {
 
@@ -43,7 +43,7 @@ class Sorting {
 
   addWord(reference, newWord) {
     const node = {
-      distance: reference.length - this.getDistance(reference, newWord),
+      similarity: reference.length - this.getDistance(reference, newWord),
       word: newWord
     };
 
@@ -55,6 +55,6 @@ class Sorting {
   }
 }
 
-export default angular.module('services.forecast', [])
+export default angular.module('services.sorting', [])
   .service('sorting', Sorting)
   .name;
