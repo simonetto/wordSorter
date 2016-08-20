@@ -1,22 +1,32 @@
 <section class="landing-wrapper">
-    <div class="list-wrapper">
-      <div class="column-item">
-        <label for="reference-word">Reference:</label>
-        <input type="text" id="reference-word" placeholder="reference word" ng-model="landing.model.reference" ng-disabled="landing.model.list.length">
-      </div>
+    <div class="list-wrapper top-margin">
+      <div class="form-shadow">
+        <div class="column-item">
+          <label for="reference-word">Reference:</label>
+          <input class="form-control" type="text" id="reference-word" placeholder="reference word" ng-model="landing.model.reference" ng-disabled="landing.model.list.length">
+        </div>
 
-      <div class="column-item">
-        <label for="new-word">New candidate:</label>
-        <input type="text" id="new-word" placeholder="candidate word" ng-model="landing.model.newWord">
-        <button ng-click="landing.onWordAdding()" ng-disabled="landing.isAdditionDisabled()">+</button>
+        <div class="column-item">
+          <label for="new-word">New candidate:</label>
+          <input class="form-control" type="text" id="new-word" placeholder="candidate word" ng-model="landing.model.newWord">
+          <a href="" class="btn" ng-click="landing.onWordAdding()">
+            <span>+</span>
+          </a>
+        </div>
       </div>
     </div>
 
-    <div class="column-wrapper">
+    <div class="column-wrapper top-margin">
+      <div class="form-shadow flex-row" ng-show="landing.model.list.length">
         <div class="list-wrapper">
             <list-item ng-repeat="item in landing.model.list" item="item"></list-item>
         </div>
 
-        <button ng-click="landing.onWordRemoval()" ng-show="landing.model.list.length">-</button>
+        <div>
+          <a href="" type="button" class="btn" ng-click="landing.onWordRemoval()">
+            <span>-</span>
+          </a>
+        </div>
+      </div>
     </div>
 </section>

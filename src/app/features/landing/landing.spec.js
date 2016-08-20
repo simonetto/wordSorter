@@ -11,31 +11,14 @@ describe('Controller: Landing', () => {
     $controller = _$controller_;
   }));
 
-  it('addition button should be enabled', () => {
-    const ctrl = $controller('LandingController');
-
-    ctrl.model.reference = 'test';
-    ctrl.model.newWord = 'test';
-
-    expect(ctrl.isAdditionDisabled()).toBe(false);
-  });
-
-  it('addition button should be disabled with both words empty', () => {
+  it('should now allow empty words', () => {
     const ctrl = $controller('LandingController');
 
     ctrl.model.reference = '';
-    ctrl.model.newWord = '';
+    ctrl.model.newWord = 'fest';
+    ctrl.onWordAdding();
 
-    expect(ctrl.isAdditionDisabled()).toBe(true);
-  });
-
-  it('addition button should be disabled with one word empty', () => {
-    const ctrl = $controller('LandingController');
-
-    ctrl.model.reference = '';
-    ctrl.model.newWord = 'test';
-
-    expect(ctrl.isAdditionDisabled()).toBe(true);
+    expect(ctrl.model.list).toBe(undefined);
   });
 
   it('add five words', () => {
