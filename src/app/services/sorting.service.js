@@ -10,6 +10,7 @@ class Sorting {
   /**
     gets the Levenshtein distance of the given words
   **/
+  // it's just a function, but why not a class for itself ?
   getDistance(reference, newWord) {
     const matrix = [];
     let i;
