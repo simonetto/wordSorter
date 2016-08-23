@@ -29,6 +29,12 @@ export default class MaxHeap {
       const parentPosition = Math.floor((n + 1) / 2) - 1;
       const parent = this.content[parentPosition];
 
+	  // here we install a strong dependency from the element shape
+	  // providing a comparison function at construction time
+	  // i.e. compare(a, b) -> 0 if equal, <0 a is smaller, >0 greater
+	  // makes the structure more flexible (decoupling)
+	  // note that the heap would just be a heap, max and min could
+	  // be controlled from the outside
       if (element.similarity <= parent.similarity) {
         break;
       }
@@ -58,8 +64,10 @@ export default class MaxHeap {
       const child2Position = (n + 1) * 2;
       const child1Position = child2Position - 1;
 
+	  // guess: refactor leftover
       swapPosition = null;
 
+	  // pedantic: this line and 71 should be factored in shouldBeSwapped, renamed to something like "getSwapPosition"
       swapPosition = this.shouldBeSwapped(element, child1Position) ? child1Position : null;
 
       if (!swapPosition) {
@@ -67,6 +75,7 @@ export default class MaxHeap {
       }
 
       if (swapPosition) {
+		// std::swap :-P
         this.content[n] = this.content[swapPosition];
         this.content[swapPosition] = element;
         n = swapPosition;
